@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./src/styles.css" />
+        <title>Odin Image Carousel</title>
+    </head>
+    <body>
+        <div class="mainContainer">
+            <header>
+                <div class="title">Image Carousel</div>
+                <div class="byline">Odin Project</div>
+                <nav>
+
+                    <div class="menuContainer">
+                        <button id="exploreBtn" class="navBtn">Explore</button>
+                        <div id="exploreDropdown">
+                            <div class="menuItem">Shows</div>
+                            <div class="menuItem">Artists</div>
+                            <div class="menuItem">Recent Sales</div>
+                            <div class="menuItem">How to Participate</div>
+                            <div class="menuItem">Donors</div>
+                        </div>
+                    </div>
+                    <div class="menuContainer">
+                        <button id="membershipBtn" class="navBtn">Membership</button>
+                        <div id="membershipDropdown">
+                            <div class="menuItem">Free Member</div>
+                            <div class="menuItem">Plus Member</div>
+                            <div class="menuItem">Gold Member</div>
+                        </div>
+                        
+                    </div>
+                    <div class="menuContainer">
+                        <button id="aboutBtn" class="navBtn">About</button>
+                        <div id="aboutDropdown">
+                            <div class="menuItem">Our Story</div>
+                            <div class="menuItem">Blog</div>
+                            <div class="menuItem">Contact</div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <div id="content">
+                <div class="curvedDiv">
+                    <div id="backArrow"></div>
+                    <div id="carouselDiv">
+                        <div class="img1"></div>
+                        <div class="img2"></div>
+                        <div class="img3"></div>
+                        <div class="img4"></div>
+                        <div class="img5"></div>
+                        <div class="img6"></div>
+                    </div>
+                    <div id="forwardArrow"></div>
+
+                    <div class="circleBtnContainer">
+                        <button class="circleBtn" id="btn1"></button>
+                        <button class="circleBtn" id="btn2"></button>
+                        <button class="circleBtn" id="btn3"></button>
+                        <button class="circleBtn" id="btn4"></button>
+                        <button class="circleBtn" id="btn5"></button>
+                        <button class="circleBtn" id="btn6"></button>
+                    </div>
+
+                    <!-- svg curve -->
+                    <svg class="curveOverlay" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
+                        <path d="M0,150 C360,70 1080,70 1440,150 L1440,150 L0,150 Z"/>
+                    </svg>
+                </div>
+            </div>
+            <footer>Odin Project Image Carousel</footer>
+        <div>
+    </body>
+
+    <script type="module" src="./src/main.js"></script>
+</html>

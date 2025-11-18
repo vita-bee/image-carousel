@@ -1,0 +1,333 @@
+:root {
+  --button-color: whitesmoke;
+  --nav-button-color: white;
+  --nav-hover-color: rgba(106, 42, 244, 0.4);
+  --title-color: rgb(101, 105, 95);
+  --bodytext-color: gray;
+  --contentSection-color: white;
+  --header-color: white;
+  --mainContainer-color: whitesmoke;
+  --dropdownDiv-color: white;
+  --menu-item-color: white;
+  --curved-div-color: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'logoFont';
+  src: url('./assets/fonts/Lumiare.otf') format('opentype');
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+body {
+  /* Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  /* FONT FAMILY STACK */
+  font-family:
+    Roboto, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--bodytext-color);
+}
+
+@media (min-width: 1400px) {
+  /* apply special width only on wide screens */
+  .mainContainer {
+    width: 85%;
+    max-width: 1200px; /* optional cap so it doesn’t stretch forever */
+  }
+}
+
+button {
+  background-color: var(--button-color);
+  color: gray;
+  opacity: 1;
+  transition: opacity 0.3s ease; /* smooth fade effect */
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+button:active {
+  /* transform: scale(0.95);  Scale down */
+  box-shadow: 0px 2px 0px #666;
+}
+
+button:hover {
+  box-shadow: 1px -3px 21px 6px rgb(244, 181, 195);
+}
+
+.mainContainer {
+  width: 80vw; /* 80% of the viewport width */
+  margin: 0 auto; /* center it horizontally */
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
+  margin: 0 auto;
+  flex: 1; /* stretch to take vertical length of viewport */
+  background-color: var(--mainContainer-color);
+}
+
+header {
+  grid-row: 1;
+  background-color: var(--header-color);
+  color: gray;
+  font-size: 14px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto auto;
+  padding: 10px 0px 0px 10px;
+  margin: 10px 10px 0px 10px;
+}
+
+header .title {
+  grid-column: 1 / 3;
+  grid-row: 1/2;
+  font-family: Roboto;
+  font-size: 20px;
+  text-align: left;
+  color: var(--title-color);
+  text-shadow: 4px 2px 2px rgba(87, 86, 86, 0.4);
+}
+
+header .byline {
+  grid-column: 1 / 3;
+  grid-row: 2/3;
+  font-size: 10px;
+  text-align: left;
+  color: var(--title-color);
+  margin-top: 3px;
+}
+
+nav {
+  grid-column: 2 / 3;
+  grid-row: 2/3;
+  align-self: self-end;
+  display: flex;
+  justify-content: right;
+}
+
+nav button {
+  text-align: left;
+  font-size: 12px;
+  background-color: var(--nav-button-color);
+  width: 80px;
+  height: 25px;
+  border-radius: 5px 5px 0px 0px;
+  box-shadow: 3px -7px 7px -4px #767677d9;
+}
+
+nav button:hover {
+  box-shadow: 0px -10px 30px 0px var(--curved-div-color);
+}
+
+.activeNavTab {
+  box-shadow: 0px -10px 30px 0px var(--mainContainer-color);
+}
+
+.menuContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#exploreDropdown,
+#membershipDropdown,
+#aboutDropdown {
+  position: absolute;
+  top: 25px;
+  left: 0px;
+  width: 80px;
+  height: 50px;
+  background-color: var(--dropdownDiv-color);
+  flex-direction: column;
+  display: none;
+  z-index: 99;
+}
+
+.menuItem {
+  text-align: left;
+  font-size: 10px;
+  padding: 5px;
+  background-color: var(--menu-item-color);
+}
+
+.menuItem:hover {
+  box-shadow: inset 0px 0px 10px 5px var(--mainContainer-color);
+}
+
+#content {
+  display: flex;
+  background-color: var(--contentSection-color);
+  height: 70vh; /* stretch to take x% vertical length of viewport so footer shows*/
+  margin: 0px 10px 0px 10px;
+  font-size: 12px;
+  box-shadow:
+    rgba(45, 35, 66, 0.4) 0 2px 5px,
+    rgba(45, 35, 66, 0.3) 0 7px 5px -3px,
+    #d6d6e7 0 -3px 0 inset;
+}
+
+.curvedDiv {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: var(--curved-div-color);
+  overflow: visible;
+  display: flex;
+  gap: 2px;
+  margin-top: 20px;
+}
+
+#carouselDiv {
+  width: 100%;
+  height: 300px;
+  background: var(--curved-div-color);
+  overflow: visible;
+  display: flex;
+  gap: 4px;
+}
+
+/* Inverted concave SVG overlay */
+.curveOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  z-index: 10;
+  pointer-events: none; /* so buttons can still be hovered */
+}
+
+.curveOverlay path {
+  fill: var(--contentSection-color); /* matches the background below the div */
+}
+
+/* Buttons positioned just above the concave curve */
+.circleBtnContainer {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 20;
+}
+
+.circleBtn {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  transition:
+    background 0.12s ease,
+    transform 0.12s ease;
+  box-shadow:
+    rgba(0, 0, 0, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.circleBtn:hover {
+  background: rgb(55, 53, 53);
+  transform: scale(1.1);
+}
+
+.rightImgDiv,
+.centerImgDiv,
+.leftImgDiv {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(213, 240, 231);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#forwardArrow {
+  background: url('./images/forward-2arrow.svg') no-repeat center center /
+    contain;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  align-self: center;
+  xborder: 1px solid gray;
+  border-radius: 50% 50px;
+  background-color: white;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+#backArrow {
+  background: url('./images/back-2arrow.svg') no-repeat center center / contain;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  align-self: center;
+  border-radius: 50px 50%;
+  background-color: white;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+footer {
+  font-size: 10px;
+  text-align: center;
+  padding: 10px;
+  margin: 0px 10px 0px 10px;
+}
+
+.img1,
+.img2,
+.img3,
+.img4,
+.img5,
+.img6 {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.img4,
+.img5,
+.img6 {
+  display: none;
+}
+
+.img1 {
+  background: url('./images/pink-bird.JPEG') center/cover no-repeat;
+}
+
+.img2 {
+  background: url('./images/radio-tentacles.JPEG') center/cover no-repeat;
+}
+
+.img3 {
+  background: url('./images/sphere.JPEG') center/cover no-repeat;
+}
+
+.img4 {
+  background: url('./images/sleep.JPEG') center/cover no-repeat;
+}
+
+.img5 {
+  background: url('./images/apt.JPEG') center/cover no-repeat;
+}
+
+.img6 {
+  background: url('./images/subway.jpeg') center/cover no-repeat;
+}
