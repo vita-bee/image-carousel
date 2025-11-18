@@ -129,10 +129,6 @@ nav button {
   box-shadow: 3px -7px 7px -4px #767677d9;
 }
 
-nav button:hover {
-  box-shadow: 0px -10px 30px 0px var(--curved-div-color);
-}
-
 .activeNavTab {
   box-shadow: 0px -10px 30px 0px var(--mainContainer-color);
 }
@@ -245,17 +241,6 @@ nav button:hover {
   transform: scale(1.1);
 }
 
-.rightImgDiv,
-.centerImgDiv,
-.leftImgDiv {
-  height: 100%;
-  width: 100%;
-  background-color: rgb(213, 240, 231);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #forwardArrow {
   background: url('./images/forward-2arrow.svg') no-repeat center center /
     contain;
@@ -263,7 +248,6 @@ nav button:hover {
   height: 20px;
   cursor: pointer;
   align-self: center;
-  xborder: 1px solid gray;
   border-radius: 50% 50px;
   background-color: white;
   box-shadow:
@@ -282,13 +266,6 @@ nav button:hover {
   box-shadow:
     rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-
-footer {
-  font-size: 10px;
-  text-align: center;
-  padding: 10px;
-  margin: 0px 10px 0px 10px;
 }
 
 .img1,
@@ -330,4 +307,11 @@ footer {
 
 .img6 {
   background: url('./images/subway.jpeg') center/cover no-repeat;
+}
+
+footer {
+  font-size: 10px;
+  text-align: center;
+  padding: 10px;
+  margin: 0px 10px 0px 10px;
 }
