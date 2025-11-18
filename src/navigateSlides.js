@@ -2,7 +2,7 @@ export const navigateSlides = (function () {
   const parentCarousel = document.getElementById('carouselDiv');
   const childSlides = parentCarousel.children;
 
-  function nextSlide() {
+  function prevSlide() {
     const lastChild = parentCarousel.lastElementChild;
     if (lastChild) {
       parentCarousel.prepend(lastChild);
@@ -11,7 +11,7 @@ export const navigateSlides = (function () {
     }
   }
 
-  function prevSlide() {
+  function nextSlide() {
     if (childSlides[0]) {
       parentCarousel.append(childSlides[0]);
       resetVisibility();
@@ -44,7 +44,7 @@ export const navigateSlides = (function () {
   function repositionForward(numSpaces) {
     // Shift carousel slides backward by the number of spaces
     for (let i = 0; i < numSpaces; i++) {
-      prevSlide();
+      nextSlide();
     }
   }
 
@@ -52,7 +52,7 @@ export const navigateSlides = (function () {
     // This fucniotn called only when numSpaces < 0, so decrement loop
     // Shift carousel slides forward by the number of spaces
     for (let i = 0; i > numSpaces; i--) {
-      nextSlide();
+      prevSlide();
     }
   }
 
@@ -99,6 +99,8 @@ export const navigateSlides = (function () {
 
   function init() {
     document.addEventListener('click', handleEvent);
+    resetVisibility();
+    resetCircleIndicator();
   }
 
   return { init, nextSlide, prevSlide };
