@@ -101,6 +101,7 @@ export const navigateSlides = (function () {
     document.addEventListener('click', handleEvent);
     resetVisibility();
     resetCircleIndicator();
+    setInterval(nextSlide, 5000);
   }
 
   return { init, nextSlide, prevSlide };
