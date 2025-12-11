@@ -166,6 +166,11 @@ nav button {
 
 #content {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-content: start;
+  gap: 20px;
+  padding: 20px;
   background-color: var(--contentSection-color);
   height: 70vh; /* stretch to take x% vertical length of viewport so footer shows*/
   margin: 0px 10px 0px 10px;
@@ -314,4 +319,87 @@ footer {
   text-align: center;
   padding: 10px;
   margin: 0px 10px 0px 10px;
+}
+
+/* Contact Form related Css*/
+
+.introText {
+  flex-basis: 100%;
+}
+
+.fieldsContainer {
+  flex-basis: 100%;
+  box-shadow:
+    rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+    #d6d6e7 0 -3px 0 inset;
+  font-size: 12px;
+  background-color: whitesmoke;
+  padding: 15px;
+}
+.formGroup {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 20px;
+}
+
+legend {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.form-row {
+  flex-direction: column;
+  align-items: flex-start; /* To avoid stretching */
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-row label {
+  font-family: Roboto, sans-serif;
+  letter-spacing: 0.2em;
+  font-size: 7px;
+  font-weight: 600;
+  color: rgb(101, 101, 101);
+  text-transform: uppercase;
+}
+
+.form-row input {
+  background-color: #ffffff;
+  border: 1px solid #d6d9dc;
+  border-radius: 3px;
+  width: 200px;
+  padding: 7px;
+  font-size: 10px;
+}
+
+.form-row input:focus {
+  outline: none;
+  border-color: blue;
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+}
+
+.form-row input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.form-row input[type='text']:invalid,
+.form-row input[type='email']:invalid,
+.form-row input[type='tel']:invalid,
+.form-row input[type='password']:invalid {
+  border: 1px solid #d55c5f;
+  color: #d55c5f;
+  box-shadow: none; /* Remove default red glow in Firefox */
+}
+
+.form-row input[type='password']:valid {
+  border: 1px solid #d6d9dc;
+}
+
+.createAccBtn {
+  border: 1px solid rgb(28, 91, 28);
 }
