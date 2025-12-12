@@ -30,24 +30,23 @@ form.addEventListener('submit', (event) => {
     showEmailError();
     // Prevent form submission
     event.preventDefault();
-  }
-  if (!postalCode.validity.valid) {
+  } else if (!postalCode.validity.valid) {
     // Display an appropriate error message
     showPostalCodeError();
     // Prevent form submission
     event.preventDefault();
-  }
-  if (!password.validity.valid) {
+  } else if (!password.validity.valid) {
     // Display an appropriate error message
     showPasswordError();
     // Prevent form submission
     event.preventDefault();
-  }
-  if (!confirmPassword.validity.valid) {
+  } else if (!confirmPassword.validity.valid) {
     // Display an appropriate error message
     showConfirmPasswordError();
     // Prevent form submission
     event.preventDefault();
+  } else {
+    alert('hi five!');
   }
 });
 
@@ -133,8 +132,8 @@ function showPasswordError() {
 
 function showConfirmPasswordError() {
   if (confirmPassword.validity.valueMissing) {
-    confirmPasswordError.textContent = 'Please enter your password to confirm.';
-  } else confirmPasswordError.textContent = "Passwords don't match";
+    confirmPasswordError.textContent = 'Re-enter your password to confirm.';
+  } else confirmPasswordError.textContent = 'Passwords do not match';
   // Add the `active` class to show the error
   passwordError.className = 'error active';
 }
@@ -151,9 +150,11 @@ function checkPassword() {
 
 function checkConfirmPassword() {
   if (confirmPassword.value === password.value) {
+    confirmPassword.setCustomValidity('');
     confirmPasswordError.textContent = ''; // Remove the message content
     confirmPasswordError.className = 'error'; // Removes the `active` class that shows error
   } else {
+    confirmPassword.setCustomValidity('Passwords do not match');
     showConfirmPasswordError();
   }
 }
